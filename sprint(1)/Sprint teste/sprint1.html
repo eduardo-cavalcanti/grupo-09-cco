@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de finanças</title>
+</head>
+
+<body>
+
+    <img  src="teste1.jpg" style="width: 400px%;">
+    <br>
+    <div style="width: 5%; height: 1px;float: left;"></div> 
+    <!-- dseging-->
+    <h1 style="float:left;">Escolha qual produto está necessitado</h1>
+    <!-- dseging--> <br><br><br><br><br>
+    <br><br>
+
+
+    <b style="float: left; color: blueviolet; ">Escolha o produto:</b> <br>
+    <select id="prod">
+        <option value="3">Coca Cola</option>
+        <option value="2.5">Guaraná</option>
+        <option value="2">Toddynho</option>
+        <option value="5">Lanche de frango</option>
+        <option value="4.5">Lanche de atum</option>
+        <option value="6">Escondidinho de carne</option>
+    </select>
+    <br>
+    <img style="float: left; height: 200px;" id="imagem" src="" alt="">
+    <br>
+    <b style="float: Right; color: blueviolet; ">Você é?</b> <br>
+    <select style="float: right;" id="pessoa">
+        <option value="1">Não pj</option>
+        <option value="0.99">Pj</option>
+    </select>
+<br>
+    <b style="float: right; color: blue; ">Digite a quantidade do produto:</b> <br>
+    <select style="float: right;" id="quant">
+        <option value="1">1</option>
+        <option value="4.95">5</option>
+        <option value="9.5">10</option>
+        <option value="46">50</option>
+        <option value="90.">100</option>
+        <option value="170">200</option>
+
+    </select>
+    <input style="display: none;" placeholder="Valor maior que 200" id="mais">
+    <br>
+    <b style="float: right; color: blue; ">Escolha um plano</b> <br>
+    <select style="float: right;" id="plan">
+        <option value="1.1">1 mês</option>
+        <option value="3.1">3 mês</option>
+        <option value="6">6 mês</option>
+        <option value="11.8">1 ano</option>
+        <option value="33">3 anos</option>
+    </select>
+    <br>
+    <b style="float: right; color: blue; ">Parcelamento</b> <br>
+    <select style="float: right;" id="parc">
+        <option value="1.01">1x</option>
+        <option value="2">2x</option>
+        <option value="3">3x</option>
+        <option value="6">6x</option>
+        <option value="12">12x</option>
+        <option value="36">36x</option>
+        <option value="72">72x</option>
+    </select>
+    <br>
+    <br>
+    <button style="float: right;" onclick="resul()">Gerar valor</button>
+    <br>
+    <br>
+    <br>
+    <div style="width: 33%; float: left; height: 1px;"></div>
+    <div style="float: left: ;;" id="texto"></div>
+    <br>
+    <div style="width: 40%; float: left; height: 1px;"></div>
+    <div style="float: left: ;;" id="texto2"></div>
+
+
+</body>
+
+</html>
+<script>
+
+    function resul() {
+        var con = (Number(quant.value) * Number(plan.value) * Number(prod.value) * Number(pessoa.value)).toFixed(2);
+        var cont = (con / Number(parc.value)).toFixed(2);
+
+        imagem.src = `${prod.value}.png`
+        texto.innerHTML = `Com esses dados o valor total seria de R$ ${con}`
+
+        texto2.innerHTML = `Cada parcela sairia R$${cont} `
+    }
+
+</script>

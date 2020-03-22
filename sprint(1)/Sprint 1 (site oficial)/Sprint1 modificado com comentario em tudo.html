@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de finanças</title>
+</head>
+
+<body>
+
+    <img  src="teste1.jpg" style="width: 400px%;">
+    <br>
+    <div style="width: 5%; height: 1px;float: left;"></div> 
+    <!-- titulo-->
+    <h1 >Me fale um pouco sobre sua necessidade </h1>
+    <!-- escrito normal--> 
+    Dúvida aperte o
+    <!-- do lado do escrito temos uma imagem de um ponto de interrogação com a função onclick q quando vc clica ela ativa a função help0-->
+    <img style="height: 20px;" onclick="help0()" id="imagem" src="help.png" alt="">
+    <!-- aqui em baixo temos uma div invisivel q aparece quando clica na função help0-->
+    <div style="display: none;" id="ajuda0">E assim aparecerá mais informações</div>
+     <br><br><br><br>
+ 
+
+<!-- aqui temo uma pergunta em colorido normal-->
+    <b style="float: left; color: blueviolet; ">Diga me quantas máquinas de vendas deseja imprementar nossa solução:</b>
+   <!-- aqui temos outro botão de pergunta-->
+    <img style="height: 20px;" onclick="help1()" id="imagem" src="help.png" alt=""> <br>
+    <br>
+    <!-- aqui temos outro div invisivel q so aparece quando o botão de cime é clicado-->
+    <div style="display: none;" id="ajuda1">Diga quantas máquinas de vendas pretende utilizar nosso projeto para podermos simular o valor de instalação</div>
+    <!-- aqui temos um select para selecionar um produto lembre q o q está dentro das aspas é o valor dela e fora é so um numero-->
+    <select id="prod">
+        <option value="200">1</option>
+        <option value="400">2</option>
+        <option value="600">3</option>
+        <option value="800">4</option>
+        <option value="1000">5</option>
+        <option value="2000">10</option>
+        <option value="3000">15</option>
+        <option value="4000">20</option>
+        <option value="100000">50</option>
+        <option value="200000">100</option>
+    </select>
+    <br>
+    <br>
+   
+
+   <!-- aqui temos outra pergunta-->
+       <b style="float: left: ;; color: blue; ">Escolha um plano:</b>
+       <!-- outro ponto de interrogação pra ajuda-->
+       <img style="height: 20px;" onclick="help2()" id="imagem" src="help.png" alt=""> <br> <br>
+       <!-- outro div invisivel esperando o botão acima-->
+       <div style="display: none;" id="ajuda2">Escolha o período de tempo que pretende usufluir de nossos serviços</div>
+       <!-- outro select para escolher o plano do cliente-->
+    <select style="float: left: ;;" id="plan">
+        <option value="1.1">1 mês</option>
+        <option value="3.1">3 mês</option>
+        <option value="6">6 mês</option>
+        <option value="11.8">1 ano</option>
+        <option value="33">3 anos</option>
+    </select>
+    <br>
+    
+    <br>
+    <!--- outra pergunta-->
+    <b style="float: left; color: blue; ">Quantos produtos:</b> 
+    <!-- outro botão-->
+    <img style="height: 20px;" onclick="help3()" id="imagem" src="help.png" alt=""> <br> <br>
+    <!-- outro div-->
+    <div style="display: none;" id="ajuda3">Diga quantos produtos diferentes pretendem vender em sua máquina de vendas</div><br>
+    <!-- outro select-->
+    <select style="float: left;" id="parc">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+    </select>
+    <br>
+    <br>
+    <!-- um botão q quando clicado(onclick) ativa a função resul-->
+    <button style="float: left: ;" onclick="resul()">Gerar valor</button>
+    <br>
+    <br>
+    <br>
+    <div style="width: 5%; float: left; height: 1px;"></div>
+    <!--Uma div sem nada -->
+    <div style="float: left: ;;" id="texto"></div>
+    <br>
+    <div style="width: 10%; float: left; height: 1px;"></div>
+    <!-- outra div sem nada esperando alguma função-->
+    <div style="float: left: ;;" id="texto2"></div>
+
+
+</body>
+
+</html>
+<script>
+// função q é ativada quando clicado no botão
+// os var são as variaveis
+//algumacoisa.value são os valores selecionados pelos selects lembre-se os valores q não são visto q tão dentro de aspas option value
+    function resul() {
+        var con = (Number(plan.value) * Number(prod.value) * (Number(parc.value)*5)).toFixed(2);
+        var con1 = (Number(parc.value) * 5)*(Number(prod.value)/4).toFixed(2);
+        var cont = (con / Number(plan.value)).toFixed(2);
+
+       // Aqui ele modifica o arquivo div q possui o id texto(aquele q n tinham nada) para ficar com esses texto 
+        texto.innerHTML = `Com esses dados o valor total de instalação seria de R$ ${con}`
+// aqui mesma coisa
+        texto2.innerHTML = `Sairia R$${con1} por mês (incluso a manuntenção) `
+    }
+//função ativada pelos botões de interrogação os de baixo todos
+function help0(){
+    ajuda0.style.display = 'block'
+}
+function help1(){
+    ajuda1.style.display = 'block'
+}
+
+function help2(){
+    ajuda2.style.display = 'block'
+}
+
+function help3(){
+    ajuda3.style.display = 'block'
+}
+</script>
